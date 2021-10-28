@@ -1,16 +1,12 @@
 package in.conceptarchitect.finance;
 
-import java.util.Scanner;
-
 public class BankAccount {
 	
 	int accountNumber;
-	String name;
 	String password;
 	double balance;
 	double interestRate;
-	private String salted;
-	
+
 	
 	public int getAccountNumber() {
 		return accountNumber;
@@ -19,13 +15,13 @@ public class BankAccount {
 	//account number can't be changed
 	//public void setAccountNumber(int accountNumber) {this.accountNumber = accountNumber;}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
 
 	
 	public double getBalance() {
@@ -33,24 +29,22 @@ public class BankAccount {
 	}
 
 	
-	public double getInterestRate() {
-		return interestRate;
-	}
+//	public double getInterestRate() {
+//		return interestRate;
+//	}
 
-	public void setInterestRate(double interestRate) {
-		this.interestRate = interestRate;
-	}
-	
+//	public static void setInterestRate(double interestRate) {
+//		interestRate = interestRate;
+//	}
+//	
 
 	//should there be a getPassword and setPassword
 
 	public String getPassword() {
-		System.out.println(password);
 		return password;
 	}
 
 	public void setPassword(String password) {
-		
 		this.password = salt(password);
 	}
 
@@ -83,22 +77,19 @@ private String salt(String password) {
 		}
 
 
-	public BankAccount(int accountNumber, String name, String password, double amount,double interestRate) {
-		
-		balance=amount; //this is optional here as there is a single balance in the context	
-		this.name=name;
-		setPassword(password);
-		this.interestRate=interestRate;
-		this.accountNumber=accountNumber;
-		
-	}
+//	public BankAccount(int accountNumber, String password, double amount,double interestRate) {
+//		
+//		B.balance=amount; //this is optional here as there is a single balance in the context	
+//		setPassword(password);
+//		Bank.accountNumber=accountNumber;
+//		Bank.interestRate=interestRate;
+//		
+//	}
 	
 	public void show() {
 		System.out.println("account number\t"+accountNumber);
-		System.out.println("name         \t"+name);
-		System.out.println("password     \t"+password);
+		System.out.println("password  decoded   \t"+password);
 		System.out.println("balance      \t"+balance);
-		System.out.println("interest rate\t"+interestRate);
 		System.out.println("password proper\t"+proper(password));
 		
 	}
@@ -130,9 +121,12 @@ private String salt(String password) {
 		}
 	}
 	
-	public void creditInterest() {
+	
+	
+	public void creditInterest(double balance,double interestRate) {
 		balance+=(balance*interestRate/1200);
 	}
+
 
 
 }
